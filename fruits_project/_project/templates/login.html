@@ -20,22 +20,23 @@
         <img src="{% static "images/logo.png" %}">
         <h1>تسجيل الدخول</h1>
             {% csrf_token %}
+
             {% if messages %}
             <ul>
                 {% for message in messages %}
                 <h2 style="color: red;font-size: large;">
-                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} {% endif %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    {% endif %}
                     {{ message }}
                 </li>
                 {% endfor %}
             </ul>
-        {% endif %}
+            {% endif %}
 
         <input type="text" name = 'username' placeholder="اسم المستخدم">
         <input type="password" name = 'password' placeholder="كلمة المرور">
         <button type= 'submit'>تسجيل الدخول</button>
         </form>
-
     </div>
 </div>
 </body>
