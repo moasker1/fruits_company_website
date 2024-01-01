@@ -18,8 +18,19 @@
         <img src="{% static "images/logo.png" %}">
         <h1>هل تريد تسجيل الدخول مجددا؟</h1>
             {% csrf_token %}
-        <a class='logoutt' type = "submit" href = "{% url 'login' %}">تسجيل الدخول</a>
-
+            <a class='logout' type="submit" href="{% url 'login' %}" style="
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #3498db; 
+            color: #fff; 
+            border-radius: 5px;
+            border: 2px solid #3498db;
+            transition: background-color 0.3s, color 0.3s;
+          ">
+          
+          تسجيل الدخول</a>
+          
     </div>
 </div>
 </body>
