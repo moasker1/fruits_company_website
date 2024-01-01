@@ -5,9 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 def register(request):
-    form = UserCreationForm()
-    return render(request, 'login.html',{'form':form})
-    
+    pass    
 
 def login_user(request):
     if request.method == 'POST':
