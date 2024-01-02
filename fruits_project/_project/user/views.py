@@ -59,7 +59,12 @@ def selleraccounts(request):
 def supplierpage(request):
     return render(request, 'supplierpage.html')
 #====================================================================================================================
+@login_required(login_url="login")
 def suppliersaccounts(request):
+    sup = Supplier.objects.all
+    context = {
+        'sup': sup
+    }
     if request.method == "POST":
         name = request.POST.get('name')
         place = request.POST.get('place')
@@ -88,7 +93,7 @@ def suppliersaccounts(request):
         else:
             messages.warning(request, 'حدث خطأ، يرجى التأكد من أن جميع البيانات صحيحة', extra_tags='error')
 
-    return render(request, 'suppliersaccounts.html')
+    return render(request, 'suppliersaccounts.html', context)
 #====================================================================================================================
 def today(request):
     return render(request, 'today.html')

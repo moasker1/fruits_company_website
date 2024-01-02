@@ -65,19 +65,21 @@
                     </tr>
                 </thead>
                 <tbody id="tablebody">
+                    {% for sup in sup  %}
                     <tr>
                         <td>1</td>
-                        <td>محمد احمد</td>
-                        <td>12/12/2023</td>
+                        <td>{{sup.name}}</td>
+                        <td>{{sup.date_created}}</td>
                         <td>عمولة</td>
                         <td>1</td>
                         <td>1500</td>
                         <td>0</td>
-                        <td>دمنهور</td>
+                        <td>{{sup.place}}</td>
                         <td><button class="type" id="show">عرض</button></td>
                         <td><button id="editsupplier" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></td>
                         <td><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
