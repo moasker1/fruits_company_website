@@ -16,12 +16,13 @@ return render(request, 'login')
 
 
 notes :- 
-1- push the website on github ===
-2- logout button customize ===
-3- kiwi image customize 
-4- make admin panel arabic
-5- customize admin panel themes
-6- start looking for register user form methods 
-7- search hosting websites 
-8- load requirements file
-9- search about local db and online db what is better and faster
+- ask about profits & loses
+- push the website on github ===
+- logout button customize ===
+- kiwi image customize 
+- make admin panel arabic
+- customize admin panel themes
+- start looking for register user form methods 
+- search hosting websites 
+- load requirements file
+- search about local db and online db what is better and faster
