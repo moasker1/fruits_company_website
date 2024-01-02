@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
+    <title>صفحة البائع</title>
+</head>
+<body>
+    <header>
+        <div class="main">
+            <img src="images/logo.png" alt="">
+            <h1>صفحة البائع</h1>
+        </div>
+        <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>
+    </header>
+    <!-- نافذه اضافة التحصيلات  -->
+    <div class="window" id="profitcon">
+        <i id="closeprofit" class="fa-solid fa-xmark close"></i>
+        <div class="inputs">
+            <input type="text" name="" placeholder="اسم البائع">
+            <input type="number" name="" placeholder="المبلغ">
+            <input type="number" name="" placeholder="السماح">
+            <input type="date" name="" id="">
+            <button id="addprofit">اضافة</button>
+        </div>
+    </div>
+    <div class="detailscon">
+        <h2> اسم البائع: <span>محمد احمد</span></h2>
+        <h2>التاريخ : <span>12/10/2022</span></h2>
+        <h2>الاجمالى الكلى: <span>3000</span></h2>
+        <button id="sellcar" class="sellingbtn" style="background-color: #00C2F4;">تحصيل عدة</button>
+        <button id="addpay" class="sellingbtn" style="background-color: #00C2F4;">اضافة دفع</button>
+    </div>
+    <div class="todayscar">
+        <div class="title">
+            <h1>الفواتير</h1>
+        </div>
+        <div class="table">
+            <button class="print" id="print">طباعة</button>
+            <input id="searchbar" type="text" placeholder="ابحث عن يوم معين">
+            <table>
+                <thead>
+                    <tr>
+                        <th>اليوم</th>
+                        <th>التاريخ</th>
+                        <th>الصنف</th>
+                        <th>الوزن</th>
+                        <th>السعر</th>
+                        <th>العدد</th>
+                        <th>الحالة</th>
+                        <th>المبلغ</th>
+                        <th>ملحوظة</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tablebody">
+                    <tr>
+                        <td>السبت</td>
+                        <td>12/12/2023</td>
+                        <td>تفاح</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>15</td>
+                        <td>100</td>
+                        <td></td>
+                        <td></td>
+                        <td><button id="editcar" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></td>
+                    </tr>
+                    <tr class="subtotal" id="subtotal">
+                        <td>السبت</td>
+                        <td>12/12/2023</td>
+                        <td colspan="5">اجمالى وجبة</td>
+                        <td>100</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="paied" id="paied">
+                        <td>السبت</td>
+                        <td>12/12/2023</td>
+                        <td colspan="5">تم دفع</td>
+                        <td>50</td>
+                        <td></td>
+                        <td><button id="editcar" class="btn" style="color: #fff;"><i class="fa-regular fa-pen-to-square"></i></button></td>
+                    </tr>
+                    <tr class="remain" id="remain">
+                        <td>السبت</td>
+                        <td>12/12/2023</td>
+                        <td colspan="5">الباقى </td>
+                        <td>50</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="js/search.js"></script>
+    <script>
+        let addpay = document.getElementById('addpay')
+        let profitcon = document.getElementById('profitcon')
+        let closeprofit = document.getElementById('closeprofit')
+        addpay.onclick=()=>{
+            profitcon.style.display='flex'
+        }
+        closeprofit.onclick=()=>{
+            profitcon.style.display='none'
+        }
+    </script>
+</body>
+</html>

@@ -16,6 +16,7 @@ return render(request, 'login')
 
 
 notes :- 
+- ask about styling url <a> buttons 
 - ask about profits & loses
 - push the website on github ===
 - logout button customize ===

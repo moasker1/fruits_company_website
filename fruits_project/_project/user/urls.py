@@ -18,3 +18,4 @@ urlpatterns = [
     path('suppliersaccounts',views.suppliersaccounts, name='suppliersaccounts' ),
     path('today',views.today, name='today' ),
 ]
+    
