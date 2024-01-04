@@ -55,19 +55,6 @@
             </tbody>
         </table>
     </div>
-    <!-- تعديل بيانات النقلة -->
-    <div class="window" id="editcarcon">
-        <i id="closeeditcon" class="fa-solid fa-xmark close"></i>
-        <h2>تعديل النقلة</h2>
-        <div class="inputs">
-            <input type="text" name="" id="" placeholder="اسم النقلة">
-            <input type="date" name="" id="" placeholder="التاريخ">
-            <select name="" id="">
-                <option value="">عمولة</option>
-            </select>
-            <button>تعديل</button>
-        </div>
-    </div>
     <!-- صفحة اضافة نقلات جديدة -->
     <div class="addnewcar">
         <form method="POST" class="addcar" action="{% url "addcontainer" %}">
@@ -104,16 +91,16 @@
                     </tr>
                 </thead>
                 <tbody id="tablebody">
-                    {% for container in containers  %}
                     <tr>
+                        {% for container in containers  %}
                         <td>{{container.id}}</td>
                         <td>{{container.supplier.name}}</td>
                         <td>{{container.date}}</td>
                         <td>{{container.type}}</td>
-                        <td><a><button class="type" id="addkind">اصناف النقلة</button></td></a>
+                        <td><a class="type" id="addkind">اصناف النقلة</a></td>
                         <td><a style="text-decoration: none;" href="{% url "sellcar" %}" class="type" id="sellbtn">ترحيل</a></td>
-                        <td><button id="editcar" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></td>
-                        <td><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></td>
+                        <td><a href="{% url "containerupdate" container.id %}" id="editcar" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                        <td><a href="{% url "containerdelete" container.id %}" id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></a></td>
                     </tr>
                     {% endfor %}    
                 </tbody>

@@ -6,7 +6,11 @@ urlpatterns = [
     path('logout',views.logout_user, name='logout' ),
     path('register',views.register, name='register' ),
     path('home',views.home, name='home' ),
+
     path('addcontainer',views.add_container, name='addcontainer' ),
+    path('containerdelete/<int:id>',views.container_delete, name='containerdelete' ),
+    path('containerupdate/<int:id>',views.container_update, name='containerupdate' ),
+
     path('cardetails',views.car_details, name='cardetails' ),
     path('finished',views.finished, name='finished' ),
     path('remain',views.remain, name='remain' ),

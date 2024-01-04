@@ -73,6 +73,61 @@ def add_container(request):
     context = {'containers': containers}
     return render(request, 'add.html', context)
 #====================================================================================================================
+def container_update(request, id):
+    container = None 
+
+    if request.method == "POST":
+        supplier = request.POST['supplier']
+        date_str = request.POST['date']
+        type = request.POST['type']
+        try:
+            supplier = Supplier.objects.get(name=supplier)
+        except Supplier.DoesNotExist:
+            # Handle the case where the supplier does not exist
+            messages.warning(request, 'العميل غير موجود')
+            return redirect('containerupdate',id=id)
+
+        try:
+            if date_str:  # Check for date input
+                date = timezone.datetime.strptime(date_str, '%Y-%m-%d').date()
+            elif not supplier:
+                messages.error(request,"اسم العميل غير موجود")
+                return redirect('containerupdate', id=id)
+            else:
+                date = timezone.now().date()  # Set to today's date if not provided
+
+            edit = Container.objects.get(id=id)
+            edit.supplier = supplier
+            edit.date = date
+            edit.type = type
+            edit.save()
+            messages.success(request, 'تم تعديل بيانات النقلة بنجاح', extra_tags='success')
+            return redirect("addcontainer")
+        except ValueError:
+            messages.warning(request, 'تاريخ غير صالح. يجب أن يكون الشكل YYYY-MM-DD', extra_tags='warning')
+            return redirect('containerupdate', id=id)
+        except Container.DoesNotExist:
+            messages.error(request, 'حدث خطأ، العميل غير موجود', extra_tags='error')
+            return redirect("containerupdate")
+
+    else:  # Initial rendering
+        try:
+            container = Container.objects.get(id=id)  # Retrieve object
+        except Container.DoesNotExist:
+            messages.error(request, 'حدث خطأ، العميل غير موجود', extra_tags='error')
+            return redirect("containerupdate")
+
+    context = {"container": container, "id": id}
+    return render(request, 'containerupdate.html', context)
+
+#====================================================================================================================
+def container_delete(request,id):
+    container_delete = get_object_or_404(Container, id=id )
+    if request.method == "POST":
+        container_delete.delete()
+        return redirect("addcontainer")
+    return render(request, 'containerdelete.html')
+#====================================================================================================================
 def car_details(request):
     return render(request, 'cardetails.html')
 #====================================================================================================================
