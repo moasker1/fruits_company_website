@@ -11,12 +11,16 @@ urlpatterns = [
     path('finished',views.finished, name='finished' ),
     path('remain',views.remain, name='remain' ),
     path('sellcar',views.sell_car, name='sellcar' ),
-    path('sellerpage',views.seller_page, name='sellerpage' ),
+
+    path('sellerpage/<int:id>',views.seller_page, name='sellerpage' ),
     path('selleraccounts',views.seller_accounts, name='selleraccounts' ),
+    path('sellerdelete/<int:id>',views.seller_delete, name='sellerdelete' ),
+
     path('supplierpage/<int:id>',views.supplier_page, name='supplierpage' ),
     path('suppliersaccounts',views.suppliers_accounts, name='suppliersaccounts' ),
     path('suppliersdelete/<int:id>',views.supplier_delete, name='suppliersdelete' ),
     path('supplierupdate/<int:id>',views.supplier_update, name='supplierupdate' ),
+
     path('today',views.today, name='today' ),
 ]
     

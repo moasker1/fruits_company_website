@@ -94,8 +94,17 @@ def seller_accounts(request):
 
     return render(request, 'sellersaccounts.html',context)
 #====================================================================================================================
-def seller_page(request):
-    return render(request, 'sellerpage.html')
+def seller_page(request,id):
+    seller = get_object_or_404(Seller, id=id)
+    context = {'seller': seller}
+    return render(request, 'sellerpage.html', context)
+#====================================================================================================================
+def seller_delete(request,id):
+    seller_delete = get_object_or_404(Seller, id=id )
+    if request.method == "POST":
+        seller_delete.delete()
+        return redirect("selleraccounts")
+    return render(request, "sellerdelete.html")
 #====================================================================================================================
 @login_required(login_url="login")
 def suppliers_accounts(request):
