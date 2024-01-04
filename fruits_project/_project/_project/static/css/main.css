@@ -321,7 +321,9 @@ header img{width: 60px;}
 .table table td .type{
     background-color: rgb(72, 72, 255);
     border: none;
+    text-decoration: none;
     padding: 10px;
+    max-width: 5px;
     font-size: 20px;
     color: #fff;
     border-radius: 5px;
@@ -687,6 +689,15 @@ header img{width: 60px;}
 
 .success {
     background-color: #4CAF50;
+    color: white;
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    padding: 5px 20px;
+    font-size: 25px;
+}
+.warning {
+    background-color: #f44336;
     color: white;
 }
 

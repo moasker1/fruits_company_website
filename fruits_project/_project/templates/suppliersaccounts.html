@@ -18,15 +18,18 @@
         <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>
     </header>
     <!-- تعديل عميل -->
-    <form class="window" id="editsuppliercon" action="">
+    <form method="post" action="{% url 'suppliersaccounts' %}" class="window" id="editsuppliercon">
+        {% csrf_token %}
         <i id="closeeditsupplier" class="fa-solid fa-xmark close"></i>
         <div class="inputs">
-            <input type="text" placeholder="اسم العميل">
-            <input type="text" placeholder="اسم المنطقة">
-            <input type="date" placeholder="المنظقة">
-            <button class="addbtn">تعديل عميل</button>
+            <input type="hidden" name="name" value="{{ sup.name }}">
+            <input type="hidden" name="place" value="{{ sup.place }}">
+            <input type="hidden" name="date" value="{{ sup.date_created }}">
+            <button type="submit" class="addbtn">تعديل عميل</button>
         </div>
     </form>
+
+
     <div class="todayscar">
         <form method ="POST"  class="addcar" action="{% url "suppliersaccounts" %}">
             {% csrf_token %}
@@ -75,9 +78,9 @@
                         <td>1500</td>
                         <td>0</td>
                         <td>{{sup.place}}</td>
-                        <td><button class="type" id="show">عرض</button></td>
+                        <td><a href="{% url "supplierpage" %}" class="type" id="show">عرض</a></td>
                         <td><button id="editsupplier" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></td>
-                        <td><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></td>
+                        <td><a href="{% url "suppliersdelete" sup.id %}" ><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

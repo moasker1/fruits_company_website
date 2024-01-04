@@ -15,6 +15,7 @@ urlpatterns = [
     path('selleraccounts',views.selleraccounts, name='selleraccounts' ),
     path('supplierpage',views.supplierpage, name='supplierpage' ),
     path('suppliersaccounts',views.suppliersaccounts, name='suppliersaccounts' ),
+    path('suppliersdelete/<int:id>',views.suppliersDelete, name='suppliersdelete' ),
     path('today',views.today, name='today' ),
 ]
     

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserCreationForm 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -57,17 +57,19 @@ def selleraccounts(request):
     return render(request, 'sellersaccounts.html')
 #====================================================================================================================
 def supplierpage(request):
-    return render(request, 'supplierpage.html')
+    sup = Supplier.objects.all()
+    context = {'sup': sup}
+    return render(request, 'supplierpage.html', context)
 #====================================================================================================================
 @login_required(login_url="login")
+# views.py
 def suppliersaccounts(request):
-    sup = Supplier.objects.all
-    context = {
-        'sup': sup
-    }
+    sup = Supplier.objects.all()
+    context = {'sup': sup}
+
     if request.method == "POST":
         name = request.POST.get('name')
-        place = request.POST.get('place')
+        place = request.POST.get('place', 'غير محدد')  
         date_str = request.POST.get('date')
 
         if not name:
@@ -88,12 +90,19 @@ def suppliersaccounts(request):
                 return redirect('suppliersaccounts')
 
         if Supplier.objects.create(name=name, place=place, date_created=date):
-            messages.success(request, 'تم إضافة عميل جديد بنجاح، يفضل تحديث الصفحة', extra_tags='success')
-            return redirect('suppliersaccounts')
+            messages.success(request, 'تم إضافة عميل جديد بنجاح', extra_tags='success')
         else:
             messages.warning(request, 'حدث خطأ، يرجى التأكد من أن جميع البيانات صحيحة', extra_tags='error')
 
     return render(request, 'suppliersaccounts.html', context)
+#====================================================================================================================
+def suppliersDelete(request,id):
+    supplier_delete = get_object_or_404(Supplier, id=id )
+    if request.method == "POST":
+        supplier_delete.delete()
+        return redirect("suppliersaccounts")
+    return render(request, 'suppliersdelete.html')
+
 #====================================================================================================================
 def today(request):
     return render(request, 'today.html')
