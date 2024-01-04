@@ -70,11 +70,18 @@
     </div>
     <!-- صفحة اضافة نقلات جديدة -->
     <div class="addnewcar">
-        <form class="addcar" action="">
+        <form method="POST" class="addcar" action="{% url "addcontainer" %}">
+            {% csrf_token %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+
             <div>
-                <input type="text" placeholder="اسم العميل">
-                <input type="date" placeholder="التاريخ">
-                <input type="text" placeholder="نوع النقلة">
+                <input name='supplier' type="text" placeholder="اسم العميل">
+                <input name='date' type="date" placeholder="التاريخ">
+                <input name='type' type="text" placeholder="نوع النقلة">
             </div>
             <button class="addbtn">اضف نقلة</button>
         </form>

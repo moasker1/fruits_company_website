@@ -3,7 +3,7 @@ from .forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Supplier, Seller
+from .models import Supplier, Seller, Container, Item
 from django.utils import timezone
 from django.http import JsonResponse
 # from datetime import datetime 
@@ -34,8 +34,42 @@ def logout_user(request):
 def home(request):
     return render(request, 'home.html')
 #====================================================================================================================
-def add(request):
-    return render(request, 'add.html')
+def add_container(request):
+    if request.method == "POST":
+        supplier_name = request.POST.get('supplier')
+        date_str = request.POST.get('date')
+        type = request.POST.get('type')
+
+        if not supplier_name:
+            messages.warning(request, 'يجب إدخال اسم العميل الخاص بالنقلة')
+            return redirect('addcontainer')
+
+        try:
+            # Try to get the Supplier instance based on the name
+            supplier = Supplier.objects.get(name=supplier_name)
+        except Supplier.DoesNotExist:
+            # Handle the case where the supplier does not exist
+            messages.warning(request, 'العميل غير موجود')
+            return redirect('addcontainer')
+
+        if not date_str:
+            date = timezone.now().date()
+        else:
+            try:
+                date = timezone.datetime.strptime(date_str, '%Y-%m-%d').date()
+            except ValueError:
+                messages.warning(request, 'تاريخ غير صالح. يجب أن يكون الشكل YYYY-MM-DD', extra_tags='warning')
+                return redirect('addcontainer')
+
+        # Create a new Container instance with the retrieved Supplier
+        Container.objects.create(supplier=supplier, date=date, type=type)
+
+        messages.success(request, "تم إضافة نقلة جديدة بنجاح")
+
+    containers = Container.objects.all()
+
+    context = {'containers': containers}
+    return render(request, 'add.html', context)
 #====================================================================================================================
 def car_details(request):
     return render(request, 'cardetails.html')
