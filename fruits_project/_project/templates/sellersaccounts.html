@@ -27,12 +27,20 @@
             <button class="editbtn">تعديل بائع</button>
         </div>
     </form>
+    {% comment %} ====================================================================================== {% endcomment %}
     <div class="todayscar">
-        <form class="addcar" action="">
+        <form method ="POST" class="addcar" action="{% url "selleraccounts" %}">
+            {% csrf_token %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+
             <div>
-                <input type="text" placeholder="اسم البائع">
-                <input type="text" placeholder="المنطقة">
-                <input type="date" placeholder="التاريخ">
+                <input name="name" type="text" placeholder="اسم البائع">
+                <input name="place" type="text" placeholder="المنطقة">
+                <input name="date" type="date" placeholder="التاريخ">
             </div>
             <button class="addbtn">اضف بائع</button>
         </form>
@@ -57,18 +65,21 @@
                     </tr>
                 </thead>
                 <tbody id="tablebody">
+                    {% for seller in seller  %}
+
                     <tr>
                         <td>1</td>
-                        <td>محمد احمد</td>
-                        <td>12/12/2023</td>
+                        <td>{{seller.name}}</td>
+                        <td>{{seller.date_created}}</td>
                         <td>عمولة</td>
                         <td>1</td>
                         <td>1500</td>
-                        <td>ابوحمص</td>
-                        <td><button class="type" id="show">عرض</button></td>
+                        <td>{{seller.place}}</td>
+                        <td><a href="{% url "supplierpage" %}" class="type" id="show">عرض</a></td>
                         <td><button id="editseller" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></td>
                         <td><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

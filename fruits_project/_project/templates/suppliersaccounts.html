@@ -22,9 +22,9 @@
         {% csrf_token %}
         <i id="closeeditsupplier" class="fa-solid fa-xmark close"></i>
         <div class="inputs">
-            <input type="hidden" name="name" value="{{ sup.name }}">
-            <input type="hidden" name="place" value="{{ sup.place }}">
-            <input type="hidden" name="date" value="{{ sup.date_created }}">
+            <input type="hidden" name="name" value="">
+            <input type="hidden" name="place" value="">
+            <input type="hidden" name="date" value="">
             <button type="submit" class="addbtn">تعديل عميل</button>
         </div>
     </form>
@@ -38,7 +38,7 @@
                     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                 {% endfor %}
             </ul>
-            
+        
             <div>
                 <input name ="name" type="text" placeholder="اسم العميل">
                 <input name = 'place' type="text" placeholder="اسم المنطقة">
@@ -78,8 +78,8 @@
                         <td>1500</td>
                         <td>0</td>
                         <td>{{sup.place}}</td>
-                        <td><a href="{% url "supplierpage" %}" class="type" id="show">عرض</a></td>
-                        <td><button id="editsupplier" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></td>
+                        <td><a href="{% url "supplierpage" sup.id %}" class="type" id="show">عرض</a></td>
+                        <td><a href="{% url "supplierupdate" sup.id %}"><button id="editsupplier" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></a></td>
                         <td><a href="{% url "suppliersdelete" sup.id %}" ><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></a></td>
                     </tr>
                     {% endfor %}
@@ -90,18 +90,6 @@
     <script src="{% static "js/search.js" %}"></script>
     <script>
         let show = document.getElementById('show')
-        let editsupplier = document.getElementById('editsupplier')
-        let editsuppliercon = document.getElementById('editsuppliercon')
-        let closeeditsupplier = document.getElementById('closeeditsupplier')
-        show.onclick=()=>{
-            window.location.href='supplierpage.html'
-        }
-        editsupplier.onclick=()=>{
-            editsuppliercon.style.display='flex'
-        }
-        closeeditsupplier.onclick=()=>{
-            editsuppliercon.style.display='none'
-        }
     </script>
 </body>
 </html>
