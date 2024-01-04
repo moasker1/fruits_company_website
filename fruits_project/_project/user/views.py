@@ -99,6 +99,50 @@ def seller_page(request,id):
     context = {'seller': seller}
     return render(request, 'sellerpage.html', context)
 #====================================================================================================================
+def seller_update(request, id):
+    seller = None  # Initialize
+
+    if request.method == "POST":
+        name = request.POST['name']
+        place = request.POST['place']
+        date_str = request.POST['date']
+
+        try:
+            if date_str:  # Check for date input
+                date = timezone.datetime.strptime(date_str, '%Y-%m-%d').date()
+            elif not name:
+                messages.error(request,"اسم البائع غير موجود")
+                return redirect('sellerupdate', id=id)
+            elif not place:
+                messages.error(request,"يرجى إدخال المنطقة")
+                return redirect('sellerupdate', id=id)
+            else:
+                date = timezone.now().date()  # Set to today's date if not provided
+
+            edit = Seller.objects.get(id=id)
+            edit.name = name
+            edit.place = place
+            edit.date = date
+            edit.save()
+            messages.success(request, 'تم تعديل بيانات البائع بنجاح', extra_tags='success')
+            return redirect("selleraccounts")
+        except ValueError:
+            messages.warning(request, 'تاريخ غير صالح. يجب أن يكون الشكل YYYY-MM-DD', extra_tags='warning')
+            return redirect('sellerupdate', id=id)
+        except Seller.DoesNotExist:
+            messages.error(request, 'حدث خطأ، العميل غير موجود', extra_tags='error')
+            return redirect("selleraccounts")
+
+    else:  # Initial rendering
+        try:
+            seller = Seller.objects.get(id=id)  # Retrieve object
+        except Seller.DoesNotExist:
+            messages.error(request, 'حدث خطأ، العميل غير موجود', extra_tags='error')
+            return redirect("selleraccounts")
+
+    context = {"seller": seller, "id": id}
+    return render(request, 'sellerupdate.html', context)
+#====================================================================================================================
 def seller_delete(request,id):
     seller_delete = get_object_or_404(Seller, id=id )
     if request.method == "POST":
