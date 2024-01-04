@@ -87,7 +87,7 @@ def seller_accounts(request):
                 messages.warning(request, 'تاريخ غير صالح. يجب أن يكون الشكل YYYY-MM-DD', extra_tags='warning')
                 return redirect('selleraccounts')
 
-        if Seller.objects.create(name=name, place=place, date_created=date):
+        if Seller.objects.create(name=name, place=place, date=date):
             messages.success(request, 'تم إضافة بائع جديد بنجاح', extra_tags='success')
         else:
             messages.warning(request, 'حدث خطأ، يرجى التأكد من أن جميع البيانات صحيحة', extra_tags='error')
@@ -127,7 +127,7 @@ def suppliers_accounts(request):
                 messages.warning(request, 'تاريخ غير صالح. يجب أن يكون الشكل YYYY-MM-DD', extra_tags='warning')
                 return redirect('suppliersaccounts')
 
-        if Supplier.objects.create(name=name, place=place, date_created=date):
+        if Supplier.objects.create(name=name, place=place, date=date):
             messages.success(request, 'تم إضافة عميل جديد بنجاح', extra_tags='success')
         else:
             messages.warning(request, 'حدث خطأ، يرجى التأكد من أن جميع البيانات صحيحة', extra_tags='error')
@@ -162,7 +162,7 @@ def supplier_update(request, id):
             edit = Supplier.objects.get(id=id)
             edit.name = name
             edit.place = place
-            edit.date_created = date
+            edit.date = date
             edit.save()
             messages.success(request, 'تم تعديل بيانات العميل بنجاح', extra_tags='success')
             return redirect("suppliersaccounts")
