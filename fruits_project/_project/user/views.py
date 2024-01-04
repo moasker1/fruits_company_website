@@ -134,8 +134,8 @@ def suppliers_accounts(request):
 
     return render(request, 'suppliersaccounts.html', context)
 #====================================================================================================================
-def supplier_page(request,id):
-    sup = Supplier.objects.get(id=id)
+def supplier_page(request, id):
+    sup = get_object_or_404(Supplier, id=id)
     context = {'sup': sup}
     return render(request, 'supplierpage.html', context)
 #====================================================================================================================
