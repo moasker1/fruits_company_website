@@ -93,7 +93,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>رقم النقلة</th>
                         <th>اسم العميل</th>
                         <th>التاريخ</th>
                         <th>نوع النقلة</th>
@@ -104,16 +104,18 @@
                     </tr>
                 </thead>
                 <tbody id="tablebody">
+                    {% for container in containers  %}
                     <tr>
-                        <td>1</td>
-                        <td>محمد احمد</td>
-                        <td>12/12/2023</td>
-                        <td>عمولة</td>
-                        <td><button class="type" id="addkind">اصناف النقلة</button></td>
+                        <td>{{container.id}}</td>
+                        <td>{{container.supplier.name}}</td>
+                        <td>{{container.date}}</td>
+                        <td>{{container.type}}</td>
+                        <td><a><button class="type" id="addkind">اصناف النقلة</button></td></a>
                         <td><a style="text-decoration: none;" href="{% url "sellcar" %}" class="type" id="sellbtn">ترحيل</a></td>
                         <td><button id="editcar" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></td>
                         <td><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></td>
                     </tr>
+                    {% endfor %}    
                 </tbody>
             </table>
         </div>

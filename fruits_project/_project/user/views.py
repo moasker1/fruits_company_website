@@ -35,6 +35,8 @@ def home(request):
     return render(request, 'home.html')
 #====================================================================================================================
 def add_container(request):
+    container = Container.objects.all()
+    context = {'container':container}
     if request.method == "POST":
         supplier_name = request.POST.get('supplier')
         date_str = request.POST.get('date')
