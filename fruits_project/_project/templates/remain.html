@@ -15,7 +15,7 @@
             <img src="{% static "images/logo.png" %}" alt="">
             <h1>النقلات المتبقية</h1>
         </div>
-        <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>
+        <a href="#" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></a>
     </header>
     <div class="todayscar">
         <div class="title">
@@ -66,5 +66,11 @@
             window.location.href='cardetails.html'
         }
     </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
 </body>
 </html>

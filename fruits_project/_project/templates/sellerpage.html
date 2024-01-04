@@ -15,7 +15,7 @@
             <img src="{% static "images/logo.png" %}" alt="">
             <h1>صفحة البائع</h1>
         </div>
-        <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>
+        <a href="#" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></a>
     </header>
     <!-- نافذه اضافة التحصيلات  -->
     <div class="window" id="profitcon">
@@ -110,5 +110,11 @@
             profitcon.style.display='none'
         }
     </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
 </body>
 </html>

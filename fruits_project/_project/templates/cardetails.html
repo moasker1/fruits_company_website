@@ -14,7 +14,7 @@
             <img src="{% static "images/logo.png" %}" alt="">
             <h1>تفاصيل النقلة</h1>
         </div>
-        <a href="{% url "home" %}"><i class="fa-solid fa-arrow-left"></i></a>
+        <a href="#" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></a>
     </header>
     <!-- تعديل عملية البيع -->
     <div class="window" id="editcarsell">
@@ -173,5 +173,11 @@
             loses.style.display='none'
         }
     </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
 </body>
 </html>

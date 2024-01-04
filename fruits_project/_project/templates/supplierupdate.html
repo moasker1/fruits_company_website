@@ -16,7 +16,7 @@
             <img src="{% static "images/logo.png" %}" alt="">
             <h1>تعديـــــــل عميل</h1>
         </div>
-        <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>
+        <a href="#" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></a>
     </header>
 
 
@@ -35,6 +35,11 @@
         <button><a type="button" href = "{% url "suppliersaccounts" %}">تراجع</a></button>
     </form>
 
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 
 </body>
 </html>

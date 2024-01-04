@@ -15,7 +15,7 @@
             <img src="{% static "images/logo.png" %}" alt="">
             <h1>ترحيل النقلة</h1>
         </div>
-        <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>
+        <a href="#" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></a>
     </header>
     <button id="details" class="cardetails">تفاصيل النقلة</button>
         <!-- اضافة اصناف للنقلة -->
@@ -198,5 +198,11 @@
         }
     </script>
     <script src="{% static "js/buttons.js" %}"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
 </body>
 </html>

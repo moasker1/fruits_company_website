@@ -14,7 +14,7 @@
             <img src="{% static "images/logo.png" %}" alt="">
             <h1>اضف نقلة</h1>
         </div>
-        <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>
+        <a href="#" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></a>
     </header>
     <!-- اضافة اصناف للنقلة -->
     <div class="window" id="kinds">
@@ -132,5 +132,11 @@
             window.location.href='sellcar.html'
         }
     </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
 </body>
 </html>
