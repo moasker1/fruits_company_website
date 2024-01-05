@@ -32,6 +32,7 @@ urlpatterns = [
 # =====================================================================================
     path('supplierpage/<int:id>',views.supplier_page, name='supplierpage' ),
     path('suppliersaccounts',views.suppliers_accounts, name='suppliersaccounts' ),
+    path('suppliersort',views.supplier_sort, name='suppliersort' ),
     path('suppliersdelete/<int:id>',views.supplier_delete, name='suppliersdelete' ),
     path('supplierupdate/<int:id>',views.supplier_update, name='supplierupdate' ),
 ]

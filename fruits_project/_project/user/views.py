@@ -373,6 +373,11 @@ def suppliers_accounts(request):
             messages.warning(request, 'حدث خطأ، يرجى التأكد من أن جميع البيانات صحيحة', extra_tags='error')
 
     return render(request, 'suppliersaccounts.html', context)
+#====================================================================================================================\
+def supplier_sort(request):
+    sup = Supplier.objects.all()
+    context = {'sup': sup}
+    return render(request,'suppliersort.html',context)
 #====================================================================================================================
 def supplier_page(request, id):
     sup = get_object_or_404(Supplier, id=id)
