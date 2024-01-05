@@ -18,6 +18,7 @@ urlpatterns = [
 # =====================================================================================
     path('items',views.add_items, name='items' ),
     path('itemupdate/<int:id>',views.item_update, name='itemupdate' ),
+    path('itemdelete/<int:id>',views.item_delete, name='itemdelete' ),
 # =====================================================================================
     path('sellerpage/<int:id>',views.seller_page, name='sellerpage' ),
     path('selleraccounts',views.seller_accounts, name='selleraccounts' ),
