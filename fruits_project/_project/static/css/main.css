@@ -4,14 +4,48 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Tajawal', sans-serif;
+    /* font-family: 'Tajawal', sans-serif; */
+    font-family: Arial, Helvetica, sans-serif;
 }
 body{
     min-height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color:#dedede;
+    background: linear-gradient(270deg,#726c30,#e8df77,#FEFBD8);
+}
+.circle{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 1px 1px 10px #fefefc;
+    position: absolute;
+    background-color: #D9D9D5;
+    opacity: 0.2;
+}
+.circle:nth-child(1){
+    width: 150px;
+    height: 150px;
+    top: 8%;
+    left: -3%;
+}
+.circle:nth-child(2){
+    width: 250px;
+    height: 250px;
+    bottom: -15%;
+    right:10%;
+}
+.circle:nth-child(3){
+    width: 40%;
+    height: 70%;
+}
+.circle:nth-child(4){
+    width: 10%;
+    height: 20%;
+    top: 10%;
+    right: 10%;
 }
 header{
     display: flex;
@@ -20,20 +54,23 @@ header{
     direction: rtl;
     flex-direction: row;
     width: 100%;
+    z-index: 103;
     padding: 5px 15px;
-    background:linear-gradient(#040404,#625D5D,#D9D9D9) ;
+    background: linear-gradient(270deg,#726c30,#e8df77,#FEFBD8);
+    /* background:linear-gradient(270deg,#084413,#5A8030,#74C785) ; */
 }
 header a{
     text-decoration: none;
     color: #dedede;
-    background-color: #74C785;
-    padding: 10px 15px;
+    background-color: #c10000;
+    padding: 10px;
     font-size: 20px;
     border-radius: 50%;
     transition: 0.5s ease;
 }
+header h1,header h2{font-size: 25px;color: #040404;-webkit-text-stroke:0.5px #040404;}
 header a:hover{
-    background-color:#5A8030;
+    background-color:#610909;
 }
 header div{
     display: flex;
@@ -41,15 +78,19 @@ header div{
     gap: 20px;
     color: #fff;
 }
-header img{width: 60px;}
+header img{width: 40px;}
 /* الصفحه الرئيسية */
 .mainpage{
     direction: rtl;
     width: 100%;
     height: 100vh;
-    background: url("../images/bg.png");
+    background: linear-gradient(270deg,#726c30,#e8df77,#FEFBD8);
+    /* background:linear-gradient(270deg,#084413,#5A8030,#74C785); */
     background-position: center;
     background-size:cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .mainsec{
     display: flex;
@@ -58,7 +99,6 @@ header img{width: 60px;}
     position: relative;
     width: 100%;
     height: 70%;
-    overflow: hidden;
 }
 .mainpage i{
     position: absolute;
@@ -66,14 +106,20 @@ header img{width: 60px;}
     right: 20%;
     font-size: 60px;
     color: #5A8030;
-    animation: arrow 3s linear infinite;
+    z-index: 101;
+    animation: arrowbottom 3s linear infinite;
 }
-
+@keyframes arrowbottom {
+    50%{
+        bottom: 5%;
+    }
+}
 .mainpage img{
     position: absolute;
-    left: 5%;
-    bottom: 2%;
+    left: 30%;
+    bottom:0;
     width: 40%;
+    z-index: 100;
     transition: 0.5s ease;
     animation: arrow 3s ease-in-out infinite;
 }
@@ -92,8 +138,7 @@ header img{width: 60px;}
     flex-wrap: wrap;
     width: 100%;
     min-height: 100vh;
-    background-color: #dedede;
-
+    background: linear-gradient(270deg,#726c30,#e8df77,#FEFBD8);
 }
 .div1,.div2,.div3,.div4,.div5{
     margin: 20px;
@@ -102,22 +147,23 @@ header img{width: 60px;}
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    min-width: 45%;
+    min-width: 40%;
+    z-index: 102;
     color: #dedede;
     border-radius: 10px;
     box-shadow: 1px 1px 10px #625D5D;
     height: 300px;
     overflow: hidden;
+    background-color: #dedede71;
     transition: 0.5s ease;
 }
 .div1:hover,.div2:hover,.div3:hover,.div4:hover,.div5:hover{
     transform: scale(1.1);
 }
 .buttons{
-    background-color:#dedede;
     direction: rtl;
     height: 100%;
-    width: 40%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -128,29 +174,39 @@ header img{width: 60px;}
 .buttons ul{
     list-style: none;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .buttons ul li{
-    margin: 10px;
-    width: 100%;
+    margin: 10px 0px;
+    width: 80%;
+    box-shadow: 1px 1px 10px #625D5D;
+    border-radius: 10px;
+    background-color: #dedede6e;
     transition: 0.5s ease-in-out;
-}
-.buttons ul li:hover{
-    background-color: #74C785;
+    padding: 10px 0px;
 }
 .buttons ul li a{
     text-decoration: none;
     color: #040404;
+    width: 100%;
     font-size: 20px;
     font-weight: 600;
-    padding: 5px;
+
+}
+.buttons ul li:hover{
+    background-color: #e8df77;
 }
 .secpage img{
-    width: 60%;
+    width: 50%;
     height: 100%;
+    border-radius:0px 50% 0px 0px ;
 }
 @keyframes arrow {
     50%{
-        bottom: 8%;
+        bottom: 5%;
     }
 }
 /* اضافة اصناف للنقله */
@@ -183,6 +239,21 @@ header img{width: 60px;}
 }
 .window .close:hover,.profitcon .close:hover{
     color: #c10000;
+}
+.printing{
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #00C2F4;
+    padding: 5px;
+    border-radius: 50%;
+    transition: 0.5s ease;
+}
+.printing:hover{
+    color: #fff;
+    background-color: #00C2F4;
 }
 .window h2{
     margin: 30px;
@@ -242,7 +313,7 @@ header img{width: 60px;}
     display: flex;
     align-items: center;
 }
-.addcar input{
+.addcar input,.addcar select{
     width: 30%;
     text-align: center;
     font-size: 25px;
@@ -321,9 +392,7 @@ header img{width: 60px;}
 .table table td .type{
     background-color: rgb(72, 72, 255);
     border: none;
-    text-decoration: none;
     padding: 10px;
-    max-width: 5px;
     font-size: 20px;
     color: #fff;
     border-radius: 5px;
@@ -424,7 +493,7 @@ header img{width: 60px;}
     outline: none;
     border: 1px solid #625D5D;
     border-radius: 10px;
-    padding:5px 10px;
+    padding:10px 10px;
 }
 .sellcon input[type=text],.sellcon select{
     width: 15%;
@@ -432,7 +501,7 @@ header img{width: 60px;}
     outline: none;
     border: 1px solid #625D5D;
     border-radius: 10px;
-    padding:5px 10px;
+    padding:10px 10px;
 }
 .sellcon button{
     border: none;
@@ -450,8 +519,8 @@ header img{width: 60px;}
 }
 .cardetails{
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 0;
+    left: 5px;
     background-color: #00C2F4;
     border: none;
     border-radius:10px;
@@ -596,11 +665,25 @@ header img{width: 60px;}
         padding: 5px;
         font-size: 20px;
     }
+    .mainpage img{
+        position: absolute;
+        left: 0;
+        top:25%;
+        width: 100%;
+        z-index: 100;
+        transition: 0.5s ease;
+        animation: arrow 3s ease-in-out infinite;
+    }
+    @keyframes arrow {
+        50%{
+            top: 15%;
+        }
+    }
     .mainsec h1{
         margin-top: 60px;
     }
     .mainsec img{
-        width: 90%;
+        width: 70%;
     }
     .buttons{
         width: 50%;
@@ -612,7 +695,7 @@ header img{width: 60px;}
         height: 250px;
     }
     .buttons ul li{
-        margin: 20px;
+        margin: 10px;
     }
     .buttons ul li a{
         font-size: 15px;
@@ -680,6 +763,7 @@ header img{width: 60px;}
     .bigcon{flex-direction: column;}
     .bigcon .right,.bigcon .left{width: 100%;}
 }
+
 
 .messages {
     list-style-type: none;
