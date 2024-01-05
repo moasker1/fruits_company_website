@@ -150,6 +150,39 @@ def remain(request):
 def sell_car(request):
     return render(request, 'sellcar.html')
 #====================================================================================================================
+def add_items(request):
+    item = Item.objects.all()
+    context = {'item':item}
+    if request.method == "POST":
+        name = request.POST.get('name')
+        date = request.POST.get('date')
+
+        if not name:
+            messages.warning(request, 'يجب إدخال اسم الصنف')
+            return redirect('items')
+
+        elif not date:
+            date = timezone.now().date()
+        else:
+            try:
+                date = timezone.datetime.strptime(date, '%Y-%m-%d').date()
+            except ValueError:
+                messages.warning(request, 'تاريخ غير صالح. يجب أن يكون الشكل YYYY-MM-DD', extra_tags='warning')
+                return redirect('items')
+
+        Item.objects.create(name=name, date=date)
+
+        messages.success(request, "تم إضافة صنف جديد بنجاح")
+
+    # item = Container.objects.all()
+
+    return render(request,"kinds.html",context)
+
+#====================================================================================================================
+#===========================================SELLER & SUPPLIER=========================================================================
+#====================================================================================================================
+#====================================================================================================================
+#====================================================================================================================
 def seller_accounts(request):
     seller = Seller.objects.all()
     context = {'seller': seller}

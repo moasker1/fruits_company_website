@@ -27,7 +27,8 @@ class Seller(models.Model):
 
 class Item(models.Model):
     name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    date = models.DateField(default=timezone.now().date())
 
     def __str__(self):
         return self.name
