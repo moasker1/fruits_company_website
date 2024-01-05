@@ -22,3 +22,5 @@ notes :-
 - start looking for register user form methods 
 - load requirements file
 - search about local db and online db what is better and faster
+- make add supplier to the container <options>, and also items to the container
+- base.html

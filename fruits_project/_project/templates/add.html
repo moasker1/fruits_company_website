@@ -97,7 +97,7 @@
                         <td>{{container.supplier.name}}</td>
                         <td>{{container.date}}</td>
                         <td>{{container.type}}</td>
-                        <td><a class="type" id="addkind">اصناف النقلة</a></td>
+                        <td><a href="{% url "containeritems" container.id %}" class="type" id="addkind">اصناف النقلة</a></td>
                         <td><a style="text-decoration: none;" href="{% url "sellcar" %}" class="type" id="sellbtn">ترحيل</a></td>
                         <td><a href="{% url "containerupdate" container.id %}" id="editcar" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></a></td>
                         <td><a href="{% url "containerdelete" container.id %}" id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></a></td>
@@ -110,7 +110,7 @@
     <script src="{% static "js/search.js" %}"></script>
     <script src="{% static "js/buttons.js" %}">
     </script>
-    <script>
+    {% comment %} <script>
         let addcon = document.getElementById('addcon')
         let editcon = document.getElementById('editcon')
         let editkind = document.getElementById('editkind')
@@ -127,7 +127,7 @@
         sellbtn.onclick=()=>{
             window.location.href='sellcar.html'
         }
-    </script>
+    </script> {% endcomment %}
     <script>
         function goBack() {
             window.history.back();

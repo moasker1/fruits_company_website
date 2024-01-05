@@ -11,10 +11,15 @@ urlpatterns = [
     path('containerdelete/<int:id>',views.container_delete, name='containerdelete' ),
     path('containerupdate/<int:id>',views.container_update, name='containerupdate' ),
     path('condetails',views.container_details, name='cardetails' ),
+    path('containerItems/<int:id>',views.container_items, name='containeritems' ),
     path('today',views.today_containers, name='today' ),
     path('remain',views.remain_containers, name='remain' ),
     path('finished',views.finished_containers, name='finished' ),
     path('sellcon',views.sell_container, name='sellcar' ),
+# =====================================================================================
+    path('profits',views.profits, name='profits' ),
+    path('loses',views.loses, name='loses' ),
+    path('daymoney',views.day_money, name='daymoney' ),
 # =====================================================================================
     path('items',views.add_items, name='items' ),
     path('itemupdate/<int:id>',views.item_update, name='itemupdate' ),

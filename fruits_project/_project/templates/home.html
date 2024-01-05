@@ -33,8 +33,8 @@
             <div class="buttons">
                 <ul>
                     <li><a href="{% url "items" %}">اضف صنف <i class="fa-solid fa-arrow-left"></i></a></li>
-                    <li><a href="suppliersacc.html">اضف عميل <i class="fa-solid fa-arrow-left"></i></a></li>
-                    <li><a href="suppliersort.html">اضف بائع <i class="fa-solid fa-arrow-left"></i></a></li>
+                    <li><a href="{% url "suppliersaccounts" %}">اضف عميل <i class="fa-solid fa-arrow-left"></i></a></li>
+                    <li><a href="{% url "selleraccounts" %}">اضف بائع <i class="fa-solid fa-arrow-left"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -53,9 +53,9 @@
             <img src="{% static "images/photo_2023-12-25_18-17-42.jpg" %}" alt="">
             <div class="buttons">
                 <ul>
-                    <li><a href="profits.html">اضافة تحصيل <i class="fa-solid fa-arrow-left"></i></a></li>
-                    <li><a href="loses.html">اضافة مصروف <i class="fa-solid fa-arrow-left"></i></a></li>
-                    <li><a href="daymoney.html">تقفيل اليوم <i class="fa-solid fa-arrow-left"></i></a></li>
+                    <li><a href="{% url "profits" %}">اضافة تحصيل <i class="fa-solid fa-arrow-left"></i></a></li>
+                    <li><a href="{% url "loses" %}">اضافة مصروف <i class="fa-solid fa-arrow-left"></i></a></li>
+                    <li><a href="{% url "daymoney" %}">تقفيل اليوم <i class="fa-solid fa-arrow-left"></i></a></li>
                 </ul>
             </div>
         </div>
