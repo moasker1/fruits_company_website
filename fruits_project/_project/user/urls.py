@@ -16,7 +16,9 @@ urlpatterns = [
     path('finished',views.finished, name='finished' ),
     path('remain',views.remain, name='remain' ),
     path('sellcar',views.sell_car, name='sellcar' ),
+
     path('items',views.add_items, name='items' ),
+    path('itemupdate/<int:id>',views.item_update, name='itemupdate' ),
 
     path('sellerpage/<int:id>',views.seller_page, name='sellerpage' ),
     path('selleraccounts',views.seller_accounts, name='selleraccounts' ),

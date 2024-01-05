@@ -177,8 +177,45 @@ def add_items(request):
     # item = Container.objects.all()
 
     return render(request,"kinds.html",context)
-
 #====================================================================================================================
+def item_update(request, id):
+    item = None
+
+    if request.method == "POST":
+        name = request.POST.get('name')
+        date = request.POST.get('date')
+
+        try:
+            if date:
+                date = timezone.datetime.strptime(date, '%Y-%m-%d').date()
+            elif not name:
+                messages.error(request, "اسم الصنف غير موجود")
+                return redirect('itemupdate', id=id)
+            else:
+                date = timezone.now().date()
+
+            edit = Item.objects.get(id=id)
+            edit.name = name
+            edit.date = date
+            edit.save()
+            messages.success(request, 'تم تعديل بيانات الصنف بنجاح', extra_tags='success')
+            return redirect("items")
+        except ValueError:
+            messages.warning(request, 'تاريخ غير صالح. يجب أن يكون الشكل YYYY-MM-DD', extra_tags='warning')
+            return redirect('itemupdate', id=id)
+        except Item.DoesNotExist:
+            messages.error(request, 'حدث خطأ، الصنف غير موجود', extra_tags='error')
+            return redirect("itemupdate", id=id)
+
+    else:  # Initial rendering
+        try:
+            item = Item.objects.get(id=id)
+        except Item.DoesNotExist:
+            messages.error(request, 'حدث خطأ، الصنف غير موجود', extra_tags='error')
+            return redirect("itemupdate", id=id)
+
+    context = {"item": item, "id": id}
+    return render(request, 'kindsupdate.html', context)
 #===========================================SELLER & SUPPLIER=========================================================================
 #====================================================================================================================
 #====================================================================================================================

@@ -61,8 +61,8 @@
                         <td>{{n.id}}</td>
                         <td>{{n.name}}</td>
                         <td>{{n.date}}</td>
-                        <td><button id="editkind" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></td>
-                        <td><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></td>
+                        <td><a href="{% url "itemupdate" n.id %}" id="editcar" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                        <td><a href="" id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
