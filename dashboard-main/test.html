@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>John</td>
+        <td>25</td>
+        <td>USA</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>Alice</td>
+        <td>30</td>
+        <td>Canada</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>Bob</td>
+        <td>35</td>
+        <td>Australia</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>Eve</td>
+        <td>28</td>
+        <td>UK</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button onclick="showSelectedRows()">Show Selected Rows</button>
+
+  <div class="container" id="newContainer"></div>
+
+  <script>
+    function showSelectedRows() {
+      // Get the table element
+      var table = document.getElementById("myTable");
+
+      // Create a new table to display the selected rows
+      var newTable = document.createElement("table");
+
+      // Copy the table header to the new table
+      var headerRow = table.rows[0].cloneNode(true);
+      newTable.appendChild(headerRow);
+
+      // Loop through the table rows
+      var startRow = null;
+      var endRow = null;
+      for (var i = 1; i < table.rows.length; i++) {
+        var row = table.rows[i];
+
+        // Check if the checkbox in the row is checked
+        var checkbox = row.cells[0].querySelector('input[type="checkbox"]');
+        if (checkbox.checked) {
+          if (startRow === null) {
+            startRow = i;
+          } else {
+            endRow = i;
+            break;
+          }
+        }
+      }
+
+      // Copy the selected rows and the rows between them to the new table
+      if (startRow !== null && endRow !== null) {
+        for (var i = startRow; i <= endRow; i++) {
+          var newRow = table.rows[i].cloneNode(true);
+          newRow.deleteCell(0); // Remove the checkbox cell
+          newTable.appendChild(newRow);
+        }
+      }
+
+      // Get the new container element
+      var newContainer = document.getElementById("newContainer");
+
+      // Clear any existing content in the new container
+      newContainer.innerHTML = "";
+
+      // Append the new table to the new container
+      newContainer.appendChild(newTable);
+    }
+  </script>
+</body>
+</html>

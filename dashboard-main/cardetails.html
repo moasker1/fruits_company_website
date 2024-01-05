@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
+    <title>تفاصيل النقلة</title>
+</head>
+<body>
+    <header>
+        <div class="main">
+            <img src="images/logo.png" alt="">
+            <h1>تفاصيل النقلة</h1>
+        </div>
+        <a href="home.html"><i class="fa-solid fa-arrow-left"></i></a>
+    </header>
+    <!-- تعديل عملية البيع -->
+    <div class="window" id="editcarsell">
+        <i id="closesellcon" class="fa-solid fa-xmark close"></i>
+        <h2>تعديل عملية البيع</h2>
+        <div class="inputs">
+            <input type="number" placeholder="العدد">
+            <input type="number" placeholder="الوزن">
+            <input type="number" placeholder="السعر">
+            <input type="text" placeholder="اسم البائع">
+            <select name="kind" id="">
+                <option value="تفاح">تفاح</option>
+            </select>
+            <select name="" id="">
+                <option value="">صناديق صغيرة</option>
+                <option value="">صناديق كبيرة</option>
+            </select>
+            <button>تعديل</button>
+        </div>
+    </div>
+    <!-- اضافة خصومات للنقلة -->
+    <div class="window" id="profits">
+        <i id="closeprofits" class="fa-solid fa-xmark close"></i>
+        <h2>اضافة خصومات للنقلة</h2>
+        <div class="inputs">
+            <input type="number" name="" id="" placeholder="العمولة">
+            <input type="number" name="" id="" placeholder="مشال">
+            <input type="number" name="" id="" placeholder="ايجار عدة">
+            <button id="addprofit">اضافة</button>
+        </div>
+    </div>
+    <!-- اضافة مصروفات للنقلة -->
+    <div class="window" id="loses">
+        <i id="closeloses" class="fa-solid fa-xmark close"></i>
+        <h2>اضافة مصروفات للنقلة</h2>
+        <div class="inputs">
+            <input type="number" name="" id="" placeholder="المبلغ">
+            <input type="text" name="" id="" placeholder="نوع المصروف">
+            <input type="text" name="" id="" placeholder="ملاحظات">
+            <button id="addlose">اضافة</button>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>المبلغ</th>
+                        <th>النوع</th>
+                        <th>السعر</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tablebody">
+                    <tr>
+                        <td>1</td>
+                        <td>10</td>
+                        <td>نولون</td>
+                        <td>مبلغ للسواق</td>
+                        <td><button id="deletesell" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="detailscon">
+        <h2> اسم العميل: <span>محمد احمد</span></h2>
+        <h2>التاريخ : <span>12/10/2022</span></h2>
+        <h2>رقم النقلة : <span>3</span></h2>
+        <h2>عدد الاصناف : <span>1</span></h2>
+        <h2>العدد : <span>10</span></h2>
+        <button id="sellcar" class="sellingbtn" style="background-color: #00C2F4;">ترحيل النقلة</button>
+    </div>
+    <div class="bigcon">
+        <div class="right">
+            <button id="sales">خصومات</button>
+            <ul>
+                <li class="head">الربح : <span>1500</span></li>
+                <li>العمولة : <span>15</span></li>
+                <li>مشال : <span>15</span></li>
+                <li>ايجار عدة : <span>15</span></li>
+            </ul>
+            <button id="deleteoradd" class="deletaadd">اضافة او حذف مصروفات</button>
+            <button id="print">طباعة</button>
+        </div>
+        <div class="left">
+            <div class="detailscon">
+                <h2>العدد المباع : <span>5 </span></h2>
+                <h2>الوزن : <span>50</span></h2>
+                <h2>قيمة البيع : <span>500</span></h2>
+                <h2>العدد المتبقى : <span>5</span></h2>
+                <h2>فرق الوزن : <span>0</span></h2>
+                <h2>فرق الفاتورة : <span>0</span></h2>
+            </div>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>العدد</th>
+                            <th>الوزن</th>
+                            <th>السعر</th>
+                            <th>الاجمالى</th>
+                            <th>الصنف</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablebody">
+                        <tr>
+                            <td>1</td>
+                            <td>10</td>
+                            <td>50</td>
+                            <td>8</td>
+                            <td>400</td>
+                            <td>تفاح</td>
+                            <td><button id="editsell" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></td>
+                            <td><button id="deletesell" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button id="deletetable" class="deletetable">حذف البيان</button>
+        </div>
+    </div>
+    <script>
+        let sellcar = document.getElementById('sellcar')
+        sellcar.onclick=()=>{
+            window.location.href='sellcar.html'
+        }
+        let editcarsell = document.getElementById('editcarsell')
+        let closesellcon = document.getElementById('closesellcon')
+        let editsell = document.getElementById('editsell')
+        editsell.onclick=()=>{
+            editcarsell.style.display='flex'
+        }
+        closesellcon.onclick=()=>{
+            editcarsell.style.display='none'
+        }
+        let profits = document.getElementById('profits')
+        let closeprofits = document.getElementById('closeprofits')
+        let sales = document.getElementById('sales')
+        sales.onclick=()=>{
+            profits.style.display='flex'
+        }
+        closeprofits.onclick=()=>{
+            profits.style.display='none'
+        }
+        let loses = document.getElementById('loses')
+        let closeloses = document.getElementById('closeloses')
+        let deleteoradd = document.getElementById('deleteoradd')
+        deleteoradd.onclick=()=>{
+            loses.style.display='flex'
+        }
+        closeloses.onclick=()=>{
+            loses.style.display='none'
+        }
+    </script>
+</body>
+</html>

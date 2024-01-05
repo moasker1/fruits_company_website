@@ -7,13 +7,15 @@ class Supplier(models.Model):
     date = models.DateField(default=timezone.now().date())
     his_money = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     on_him_money = models.DecimalField(max_digits=10, decimal_places=2,default=0)
-
+    total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     @property
-    def num_containers(self):
-        return self.container_set.count()
+    def total(self):
+        return self.his_money - self.on_him_money
+
 
     def __str__(self):
         return self.name
+
 
 class Seller(models.Model):
     name = models.CharField(max_length=30)
