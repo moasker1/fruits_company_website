@@ -8,11 +8,16 @@ class Supplier(models.Model):
     his_money = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     on_him_money = models.DecimalField(max_digits=10, decimal_places=2,default=0)
     total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    num_of_containers = models.PositiveIntegerField(default=0)
+    
     @property
     def total(self):
         return self.his_money - self.on_him_money
-
-
+    
+    @property  
+    def num_of_containers(self):
+        return self.container_set.count()
+    
     def __str__(self):
         return self.name
 
