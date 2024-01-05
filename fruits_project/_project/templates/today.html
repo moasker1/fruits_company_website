@@ -38,20 +38,22 @@
                     </tr>
                 </thead>
                 <tbody id="tablebody">
-                    <tr>
-                        <td>1</td>
-                        <td>محمد احمد</td>
-                        <td>12/12/2023</td>
-                        <td>عمولة</td>
-                        <td>4</td>
-                        <td>50</td>
-                        <td>30</td>
-                        <td>20</td>
-                        <td><button class="type" id="sellbtn">ترحيل</button></td>
-                        <td><button id="details" class="type">تفاصيل</button></td>
-                    </tr>
+                    {% for container in container %}
+                            <tr>
+                                <td>{{ container.id }}</td>
+                                <td>{{ container.supplier.name }}</td>
+                                <td>{{ container.date }}</td>
+                                <td>{{ container.type }}</td>
+                                <td>4</td>
+                                <td>50</td>
+                                <td>30</td>
+                                <td>20</td>
+                                <td><button class="type" id="sellbtn">ترحيل</button></td>
+                                <td><button id="details" class="type">تفاصيل</button></td>
+                            </tr>
+                    {% endfor %}
                 </tbody>
-            </table>
+                            </table>
         </div>
     </div>
     <script src="{% static "js/search.js" %}"></script>

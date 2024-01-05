@@ -1,12 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import UserCreationForm 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Supplier, Seller, Container, Item
 from django.utils import timezone
-from django.http import JsonResponse
-# from datetime import datetime 
 
 #====================================================================================================================
 #====================================================================================================================
@@ -135,7 +132,11 @@ def finished(request):
     return render(request, 'finished.html')
 #====================================================================================================================
 def today(request):
-    return render(request, 'today.html')
+    todays_date = timezone.now().date()  # Get today's date
+    containers = Container.objects.filter(date=todays_date)  # Filter by today's date
+    context = {'container': containers}  # Pass the filtered queryset to the template
+
+    return render(request, 'today.html', context)
 #====================================================================================================================
 def loses(request):
     pass

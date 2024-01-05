@@ -12,6 +12,7 @@ urlpatterns = [
     path('containerupdate/<int:id>',views.container_update, name='containerupdate' ),
 
     path('cardetails',views.car_details, name='cardetails' ),
+    path('today',views.today, name='today' ),
     path('finished',views.finished, name='finished' ),
     path('remain',views.remain, name='remain' ),
     path('sellcar',views.sell_car, name='sellcar' ),
@@ -26,6 +27,5 @@ urlpatterns = [
     path('suppliersdelete/<int:id>',views.supplier_delete, name='suppliersdelete' ),
     path('supplierupdate/<int:id>',views.supplier_update, name='supplierupdate' ),
 
-    path('today',views.today, name='today' ),
 ]
     

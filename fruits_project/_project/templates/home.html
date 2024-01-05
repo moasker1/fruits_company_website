@@ -41,9 +41,9 @@
             <div class="buttons">
                 <ul>
                     <li><a href="{% url "addcontainer" %}">اضف نقلة</a></li>
-                    <li><a href="">نقلات اليوم</a></li>
-                    <li><a href="">النقلات المتبقية</a></li>
-                    <li><a href="">النقلات المنتهية</a></li>
+                    <li><a href="{% url "today" %}">نقلات اليوم</a></li>
+                    <li><a href="{% url "remain" %}">النقلات المتبقية</a></li>
+                    <li><a href="{% url "finished" %}">النقلات المنتهية</a></li>
 
                 </ul>
             </div>

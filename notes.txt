@@ -16,14 +16,9 @@ return render(request, 'login')
 
 
 notes :- 
-- ask about styling url <a> buttons 
-- ask about profits & loses
-- push the website on github ===
-- logout button customize ===
-- kiwi image customize 
+
 - make admin panel arabic
 - customize admin panel themes
 - start looking for register user form methods 
-- search hosting websites 
 - load requirements file
 - search about local db and online db what is better and faster
