@@ -17,7 +17,7 @@
         <a href="#" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></a>
     </header>
     <!-- اضافة اصناف للنقلة -->
-    <div class="window" id="kinds">
+    {% comment %} <div class="window" id="kinds">
         <i id="closekinds" class="fa-solid fa-xmark close"></i>
         <h2>اضافة اصناف للنقلة</h2>
         <div class="inputs">
@@ -54,7 +54,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> {% endcomment %}
     <!-- صفحة اضافة نقلات جديدة -->
     <div class="addnewcar">
         <form method="POST" class="addcar" action="{% url "addcontainer" %}">

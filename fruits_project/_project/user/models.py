@@ -57,8 +57,9 @@ class ContainerItem(models.Model):
     container = models.ForeignKey(Container, on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     count = models.PositiveIntegerField()
+    tool = models.CharField(max_length=100, default="صناديق")
     price = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
-        return f"{self.id}"
+        return f"{self.id}-{self.item.name}"
 # ===================================================================================================

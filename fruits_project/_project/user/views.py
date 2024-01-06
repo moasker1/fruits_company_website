@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Supplier, Seller, Container, Item
+from .models import Supplier, Seller, Container, Item, ContainerItem
 from django.utils import timezone
 #====================================================================================================================
 #====================================================================================================================
@@ -131,8 +131,38 @@ def container_delete(request,id):
 def container_details(request):
     return render(request, 'cardetails.html')
 #====================================================================================================================
-def container_items(request,id):
-    return render(request, 'containerItems.html')
+def container_items(request, id):
+    container = get_object_or_404(Container, pk=id)
+
+    if request.method == 'POST':
+        form_data = request.POST
+
+        # Validate form data
+        try:
+            item_name = form_data['item_name']
+            count = int(form_data['count'])
+            tool = form_data['tool']
+            price = float(form_data['price'])
+            if count <= 0 or price <= 0:
+                raise ValueError("العدد والسعر يجب أن يكونا أكبر من صفر")
+            item = Item.objects.get(name=item_name)
+        except ValueError as e:
+            messages.error(request, str(e))
+        except Item.DoesNotExist:
+            messages.error(request, f"الصنف {item_name} غير موجود")
+        else:
+            # Create a new ContainerItem object
+            ContainerItem.objects.create(
+                container=container,
+                item=item,
+                count=count,
+                tool=tool,
+                price=price
+            )
+            messages.success(request, "تم إضافة الصنف بنجاح")
+            return redirect('containeritems', id)
+
+    return render(request, 'containerItems.html', {'container': container})
 #====================================================================================================================
 def today_containers(request):
     todays_date = timezone.now().date()  # Get today's date
