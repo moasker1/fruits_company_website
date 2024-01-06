@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.db.models import Sum
 
 class Supplier(models.Model):
     name = models.CharField(max_length=30)
@@ -42,9 +43,13 @@ class Container(models.Model):
     supplier = models.ForeignKey(Supplier, on_delete=models.SET_NULL, null=True)
     date = models.DateField()
     type = models.CharField(max_length=30, default='عمولة')
-    
+    main_total_count = models.PositiveIntegerField(default=0, blank=True, null=True)
     num_sold_items = models.PositiveIntegerField(null=True)
     num_not_sold_items = models.PositiveIntegerField(null=True)
+
+    def save(self, *args, **kwargs):
+        self.main_total_count = self.containeritem_set.aggregate(total_count=Sum('count'))['total_count'] or 0
+        super().save(*args, **kwargs)
 
     @property
     def num_of_items(self):
