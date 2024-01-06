@@ -1,11 +1,11 @@
 from django.db import models
 from django.utils import timezone
-from django.db.models import Sum
 
 class Supplier(models.Model):
     name = models.CharField(max_length=30)
     place = models.CharField(max_length=70, default='غير محدد')
     date = models.DateField(default=timezone.now().date())
+    type = models.CharField(max_length=30, default='عمولة')
     his_money = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     on_him_money = models.DecimalField(max_digits=10, decimal_places=2,default=0)
     total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
@@ -61,5 +61,4 @@ class ContainerItem(models.Model):
 
     def __str__(self):
         return f"{self.id}"
-
 # ===================================================================================================
