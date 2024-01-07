@@ -72,6 +72,7 @@
                     <option value="عمولة">عمولة</option>
                     <option value="مشتريات">مشتريات</option>
                 </select>
+                <input name='weight' type="number" placeholder="وزن النقلة">
                     </div>
             <button class="addbtn">اضف نقلة</button>
         </form>
@@ -87,6 +88,7 @@
                         <th>اسم العميل</th>
                         <th>التاريخ</th>
                         <th>نوع النقلة</th>
+                        <th>وزن النقلة</th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -100,6 +102,7 @@
                         <td>{{container.supplier.name}}</td>
                         <td>{{container.date}}</td>
                         <td>{{container.type}}</td>
+                        <td>{{container.con_weight}} kg</td>
                         <td><a href="{% url "containeritems" container.id %}"style="text-decoration: none;" class="type" id="addkind">اصناف النقلة</a></td>
                         <td><a href="{% url "sellcar" %}"                   style="text-decoration: none;" class="type" id="sellbtn">ترحيل</a></td>
                         <td><a href="{% url "containerupdate" container.id %}" id="editcar" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></a></td>

@@ -41,11 +41,18 @@ def add_container(request):
         supplier_name = request.POST.get('supplier')
         date_str = request.POST.get('date')
         type = request.POST.get('type')
+        weight = request.POST.get('weight')
 
         if not supplier_name:
             messages.warning(request, 'يجب إدخال اسم العميل الخاص بالنقلة')
             return redirect('addcontainer')
-
+        if not weight:
+            messages.warning(request, ' ادخل الوزن الخاص بالنقلة')
+            return redirect('addcontainer')
+        # Check for invalid weight (less than 0)
+        if int(weight) < 0:
+            messages.warning(request, 'يجب أن يكون وزن النقلة اكبر من الصفر')  # Arabic error message
+            return redirect('addcontainer')
         try:
             # Try to get the Supplier instance based on the name
             supplier = Supplier.objects.get(name=supplier_name)
@@ -64,7 +71,7 @@ def add_container(request):
                 return redirect('addcontainer')
 
         # Create a new Container instance with the retrieved Supplier
-        Container.objects.create(supplier=supplier, date=date, type=type)
+        Container.objects.create(supplier=supplier, date=date, type=type,con_weight=weight)
 
         messages.success(request, "تم إضافة نقلة جديدة بنجاح")
 

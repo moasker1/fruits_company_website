@@ -43,6 +43,7 @@ class Container(models.Model):
     supplier = models.ForeignKey(Supplier, on_delete=models.SET_NULL, null=True)
     date = models.DateField()
     type = models.CharField(max_length=30, default='عمولة')
+    con_weight = models.PositiveIntegerField(default=0) 
     num_sold_items = models.PositiveIntegerField(null=True)
     num_not_sold_items = models.PositiveIntegerField(null=True)
 
