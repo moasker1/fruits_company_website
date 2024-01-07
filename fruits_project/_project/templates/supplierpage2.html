@@ -41,6 +41,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th>رقم النقلة</th>
                         <th>اليوم</th>
                         <th>التاريخ</th>
                         <th>الاصناف</th>
@@ -56,6 +57,7 @@
                 <tbody id="tablebody">
                     {% for container in containers %}
                     <tr>
+                        <td>{{container.id}}</td>
                         <td>السبت</td>
                         <td>{{container.date}}</td>
                         <td><a href=""><i class="fa-solid fa-info"></i></a></td>

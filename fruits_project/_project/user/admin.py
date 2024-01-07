@@ -10,6 +10,7 @@ admin.site.register(Seller)
 # admin.site.register(Container)
 admin.site.register(Item)
 admin.site.register(ContainerItem)
+
 @admin.register(Container)
 class ContainerAdmin(admin.ModelAdmin):
-    readonly_fields = ('num_of_items',)
+    readonly_fields = ('num_of_items','main_total_count')
