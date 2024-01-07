@@ -370,7 +370,9 @@ def seller_delete(request,id):
     return render(request, "sellerdelete.html")
 #====================================================================================================================
 def seller_sort(request):
-    return render(request, 'sellersort.html')
+    seller = Seller.objects.all()
+    context = {'seller':seller}
+    return render(request, 'sellersort.html', context)
 #====================================================================================================================
 @login_required(login_url="login")
 def suppliers_accounts(request):

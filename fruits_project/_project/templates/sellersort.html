@@ -33,22 +33,16 @@
                     </tr>
                 </thead>
                 <tbody id="tablebody">
+                    {% for seller in seller  %}
                     <tr>
-                        <td>محمد احمد</td>
-                        <td>12/12/2023</td>
+                        <td>{{seller.name}}</td>
+                        <td>{{seller.date}}</td>
                         <td>عمولة</td>
                         <td>1</td>
                         <td>1500</td>
-                        <td>ابوحمص</td>
+                        <td>{{seller.place}}</td>
                     </tr>
-                    <tr>
-                        <td>محمد احمد</td>
-                        <td>12/12/2023</td>
-                        <td>عمولة</td>
-                        <td>1</td>
-                        <td>1500</td>
-                        <td>القاهرة</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
