@@ -18,7 +18,7 @@
         </header>
         
         <div class="window" id="" style="display: flex;">
-        <i id="closekinds" class="fa-solid fa-xmark close"></i>
+        <a href="{% url "addcontainer" %}" id="closekinds" class="fa-solid fa-xmark close" style='text-decoration:none;'></a>
         <h2>اضافة اصناف للنقلة</h2>
 
         <form method ="POST"  class="addcar" action="{% url "containeritems" container.id %}">

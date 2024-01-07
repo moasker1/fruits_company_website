@@ -369,6 +369,9 @@ def seller_delete(request,id):
         return redirect("selleraccounts")
     return render(request, "sellerdelete.html")
 #====================================================================================================================
+def seller_sort(request):
+    return render(request, 'sellersort.html')
+#====================================================================================================================
 @login_required(login_url="login")
 def suppliers_accounts(request):
     sup = Supplier.objects.all()

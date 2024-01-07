@@ -54,7 +54,6 @@
             <table>
                 <thead>
                     <tr>
-                        <th></th>
                         <th>اسم العميل</th>
                         <th>التاريخ</th>
                         <th>نوع النقلة</th>
@@ -70,7 +69,6 @@
                 <tbody id="tablebody">
                     {% for sup in sup  %}
                     <tr>
-                        <td>1</td>
                         <td>{{sup.name}}</td>
                         <td>{{sup.date}}</td>
                         <td>عمولة</td>
@@ -78,7 +76,7 @@
                         <td>{{sup.his_money}}</td>
                         <td>{{sup.on_him_money}}</td>
                         <td>{{sup.place}}</td>
-                        <td><a href="{% url "supplierpage" sup.id %}" class="type" id="show">عرض</a></td>
+                        <td><a href="{% url "supplierpage" sup.id %}" class="type" id="show" style='text-decoration:none;'>عرض</a></td>
                         <td><a href="{% url "supplierupdate" sup.id %}"><button id="editsupplier" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></a></td>
                         <td><a href="{% url "suppliersdelete" sup.id %}" ><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></a></td>
                     </tr>

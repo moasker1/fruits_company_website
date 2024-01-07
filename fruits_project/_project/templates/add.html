@@ -68,8 +68,11 @@
             <div>
                 <input name='supplier' type="text" placeholder="اسم العميل">
                 <input name='date' type="date" placeholder="التاريخ">
-                <input name='type' type="text" placeholder="نوع النقلة">
-            </div>
+                <select name="type" id="">
+                    <option value="عمولة">عمولة</option>
+                    <option value="مشتريات">مشتريات</option>
+                </select>
+                    </div>
             <button class="addbtn">اضف نقلة</button>
         </form>
         <div class="title">
@@ -97,8 +100,8 @@
                         <td>{{container.supplier.name}}</td>
                         <td>{{container.date}}</td>
                         <td>{{container.type}}</td>
-                        <td><a href="{% url "containeritems" container.id %}" class="type" id="addkind">اصناف النقلة</a></td>
-                        <td><a style="text-decoration: none;" href="{% url "sellcar" %}" class="type" id="sellbtn">ترحيل</a></td>
+                        <td><a href="{% url "containeritems" container.id %}"style="text-decoration: none;" class="type" id="addkind">اصناف النقلة</a></td>
+                        <td><a href="{% url "sellcar" %}"                   style="text-decoration: none;" class="type" id="sellbtn">ترحيل</a></td>
                         <td><a href="{% url "containerupdate" container.id %}" id="editcar" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></a></td>
                         <td><a href="{% url "containerdelete" container.id %}" id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></a></td>
                     </tr>

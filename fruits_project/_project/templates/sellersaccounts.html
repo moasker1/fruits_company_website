@@ -75,7 +75,7 @@
                         <td>1</td>
                         <td>1500</td>
                         <td>{{seller.place}}</td>
-                        <td><a href="{% url "sellerpage" seller.id %}" class="type" id="show">عرض</a></td>
+                        <td><a href="{% url "sellerpage" seller.id %}" style="text-decoration: none;" class="type" id="show">عرض</a></td>
                         <td><a href="{% url "sellerupdate" seller.id %}"><button id="editsupplier" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></a></td>
                         <td><a href="{% url "sellerdelete" seller.id %}" ><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></a></td>
                     </tr>

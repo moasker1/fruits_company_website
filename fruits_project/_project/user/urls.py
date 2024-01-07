@@ -29,6 +29,7 @@ urlpatterns = [
     path('selleraccounts',views.seller_accounts, name='selleraccounts' ),
     path('sellerdelete/<int:id>',views.seller_delete, name='sellerdelete' ),
     path('sellerupdate/<int:id>',views.seller_update, name='sellerupdate' ),
+    path('sellersort',views.seller_sort, name='sellersort' ),
 # =====================================================================================
     path('supplierpage/<int:id>',views.supplier_page, name='supplierpage' ),
     path('suppliersaccounts',views.suppliers_accounts, name='suppliersaccounts' ),

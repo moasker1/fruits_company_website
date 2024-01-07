@@ -35,7 +35,7 @@
                     <li><a href="{% url "suppliersaccounts" %}">حسابات العملاء <i class="fa-solid fa-arrow-left"></i></a></li>
                     <li><a href="{% url "selleraccounts" %}">حسابات البائعين <i class="fa-solid fa-arrow-left"></i></a></li>
                     <li><a href="{% url "suppliersort" %}">كشف تحصيل العملاء <i class="fa-solid fa-arrow-left"></i></a></li>
-                    <li><a href="sellersort.html">كشف تحصيل البائعين <i class="fa-solid fa-arrow-left"></i></a></li>
+                    <li><a href="{% url "sellersort" %}">كشف تحصيل البائعين <i class="fa-solid fa-arrow-left"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -70,7 +70,7 @@
                 </ul>
             </div>
         </div>
-        <div class="div2">
+        {% comment %} <div class="div2">
             <img src="{% static "images/photo_2023-12-25_18-17-46.jpg" %}" alt="">
             <div class="buttons">
                 <ul>
@@ -78,7 +78,7 @@
                     <li><a href="">اضف تحصيل عدة <i class="fa-solid fa-arrow-left"></i></a></li>
                     <li><a href="">اضف هالك عدة <i class="fa-solid fa-arrow-left"></i></a></li>
                 </ul>
-            </div>
+            </div> {% endcomment %}
     </section>
     <!-- <script src="js/anime.min.js"></script>
     <script>
