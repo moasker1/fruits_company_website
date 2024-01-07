@@ -37,6 +37,7 @@
         </select>
         <input type="number" name="price" id="" placeholder="سعر البيع">
         <button id="addcon">اضافة</button>
+        <button id="addcon"><a href="{% url "addcontainer" %}" style="text-decoration: none;color:white;">تأكيد </a></button>
         </div>
         </form>
 
@@ -58,7 +59,7 @@
                 <td>{{ container_item.count }}</td>
                 <td>{{ container_item.tool }}</td>
                 <td>{{ container_item.price }}</td>
-                <td><button id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></td>
+                <td><a href="{% url "containeritemdelete" container_item.id %}" id="deletecar" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></a></td>
             </tr>
             {% endfor %}
         </tbody>

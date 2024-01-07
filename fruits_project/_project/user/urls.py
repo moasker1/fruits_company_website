@@ -12,6 +12,7 @@ urlpatterns = [
     path('containerupdate/<int:id>',views.container_update, name='containerupdate' ),
     path('condetails/<int:id>',views.container_details, name='condetails' ),
     path('containerItems/<int:id>',views.container_items, name='containeritems' ),
+    path('containeritemdelete/<int:id>',views.containeritem_delete, name='containeritemdelete' ),
     path('today',views.today_containers, name='today' ),
     path('remain',views.remain_containers, name='remain' ),
     path('finished',views.finished_containers, name='finished' ),

@@ -144,8 +144,14 @@ def container_items(request, id):
             count = int(form_data['count'])
             tool = form_data['tool']
             price = float(form_data['price'])
+
+            if not price:
+                raise ValueError("الرجاء إدخال السعر")  
+            if not count:
+                raise ValueError("الرجاء إدخال العدد")  
             if count <= 0 or price <= 0:
                 raise ValueError("العدد والسعر يجب أن يكونا أكبر من صفر")
+
             item = Item.objects.get(name=item_name)
         except ValueError as e:
             messages.error(request, str(e))
@@ -164,6 +170,13 @@ def container_items(request, id):
             return redirect('containeritems', id)
 
     return render(request, 'containerItems.html', {'container': container})
+#====================================================================================================================
+def containeritem_delete(request,id):
+    container_item_delete = get_object_or_404(ContainerItem, id=id )
+    if request.method == "POST":
+        container_item_delete.delete()
+        return redirect("containeritems", id=container_item_delete.container.id)
+    return render(request, 'containeritemdelete.html',{'container': container_item_delete.container})
 #====================================================================================================================
 def today_containers(request):
     todays_date = timezone.now().date()  # Get today's date
