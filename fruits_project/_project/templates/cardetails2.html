@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,13 +81,12 @@
         </div>
     </div>
     <div class="detailscon">
-        <h2> اسم العميل: <span>{{container.supplier.name}}</span></h2>
-        <h2>التاريخ : <span>{{ container.date }}</span></h2>
-        <h2>رقم النقلة : <span>{{ container.id }}</span></h2>
-        <h2>عدد الاصناف : <span>{{ container.num_of_items }}</span></h2>
-        <h2>العدد : <span>{{ container.main_total_count }}</span></h2>
-        <a href="{% url "sellcar" %}" id="sellcar" class="sellingbtn" style="background-color: #00C2F4;
-        text-decoration: none;">ترحيل النقلة</a>
+        <h2> اسم العميل: <span>محمد احمد</span></h2>
+        <h2>التاريخ : <span>12/10/2022</span></h2>
+        <h2>رقم النقلة : <span>3</span></h2>
+        <h2>عدد الاصناف : <span>1</span></h2>
+        <h2>العدد : <span>10</span></h2>
+        <button id="sellcar" class="sellingbtn" style="background-color: #00C2F4;">ترحيل النقلة</button>
     </div>
     <div class="bigcon">
         <div class="right">
@@ -104,7 +104,8 @@
             <div class="detailscon">
                 <h2>العدد المباع : <span>5 </span></h2>
                 <h2>الوزن : <span>50</span></h2>
-                <h2>قيمة البيع : <span>500</span></h2>
+                <h2>اجمالى البيع : <span>500</span></h2>
+                <h2> اجمالى النقلة : <span>400</span></h2>
                 <h2>العدد المتبقى : <span>5</span></h2>
                 <h2>فرق الوزن : <span>0</span></h2>
                 <h2>فرق الفاتورة : <span>0</span></h2>
@@ -113,26 +114,20 @@
                 <table>
                     <thead>
                         <tr>
-                            <th></th>
                             <th>العدد</th>
                             <th>الوزن</th>
                             <th>السعر</th>
                             <th>الاجمالى</th>
                             <th>الصنف</th>
-                            <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="tablebody">
                         <tr>
-                            <td>1</td>
                             <td>10</td>
                             <td>50</td>
                             <td>8</td>
                             <td>400</td>
                             <td>تفاح</td>
-                            <td><button id="editsell" class="btn" style="color: #00F000;"><i class="fa-regular fa-pen-to-square"></i></button></td>
-                            <td><button id="deletesell" class="btn"  style="color: #FF0000;" ><i class="fa-solid fa-trash"></i></button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -173,11 +168,5 @@
             loses.style.display='none'
         }
     </script>
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
-
 </body>
 </html>

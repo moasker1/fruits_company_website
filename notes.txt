@@ -1,21 +1,18 @@
-first code ( in python form condition)
-if request.method == "POST"
-	form = UserCreationForm(request.POST)
-	if form.is_valid():
-		form.save()
-		username = form.cleaned_data['username']
-		message.success(request, 'this is message')
-		return redirect('home')
-		
-else:
-	form = UserCreationForm()
-
-return render(request, 'login')
-
-
-
 
 notes :- 
+عمل جدول كسم الاصناف للعملاء بتاع عبغني بيعرض النقلات و الاصناف بتاعت النقلات بتاعت العميل ( الشغل في صفحة العميل) 
+
+
+نضيف الوزن و الإجمالي في containeritem ( الإجمالي يساوي الوزن * السعر
+
+فرق الوزن يساوي إجمالي وزن اصناف النقلة ناقص اجمالي وزن الاصناف المباعة 
+
+فرق الفاتورة.. اجمالي النقلة ناقص اجمالي البيع 
+
+اضافة خانات الخصومات في container .. مشال و عمولة و ايجار عدة ك attributes 
+
+عمل جدول مصروفات للنقلة   containerloses
+
 
 - make admin panel arabic
 - customize admin panel themes

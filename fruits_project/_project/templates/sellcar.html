@@ -17,7 +17,7 @@
         </div>
         <a href="#" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></a>
     </header>
-    <button id="details" class="cardetails">تفاصيل النقلة</button>
+    <a href="{% url 'condetails' container.id %}" id="details" class="cardetails">تفاصيل النقلة</a>
         <!-- اضافة اصناف للنقلة -->
     <div class="window" id="kinds">
         <i id="closekinds" class="fa-solid fa-xmark close"></i>

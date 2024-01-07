@@ -128,8 +128,9 @@ def container_delete(request,id):
         return redirect("addcontainer")
     return render(request, 'containerdelete.html')
 #====================================================================================================================
-def container_details(request):
-    return render(request, 'cardetails.html')
+def container_details(request, id):
+    container = get_object_or_404(Container, pk=id)
+    return render(request, 'cardetails.html', {'container': container})
 #====================================================================================================================
 def container_items(request, id):
     container = get_object_or_404(Container, pk=id)
@@ -177,11 +178,12 @@ def remain_containers(request):
 def finished_containers(request):
     return render(request, 'finished.html')
 #====================================================================================================================
-def sell_container(request):
-    return render(request, 'sellcar.html')
+def sell_container(request, id):
+    container = get_object_or_404(Container, pk=id)
+    return render(request, 'sellcar.html',{'container': container})
 #====================================================================================================================
 #====================================================================================================================
-#==============================================calculations======================================================================
+#=========================== ===================calculations======================================================================
 #====================================================================================================================
 #====================================================================================================================
 def loses(request):
@@ -411,8 +413,9 @@ def supplier_sort(request):
 #====================================================================================================================
 def supplier_page(request, id):
     sup = get_object_or_404(Supplier, id=id)
-    context = {'sup': sup}
-    return render(request, 'supplierpage.html', context)
+    containers = sup.container_set.all()
+    context = {'sup': sup, 'containers': containers}
+    return render(request, 'supplierpage2.html', context)
 #====================================================================================================================
 def supplier_update(request, id):
     sup = None  # Initialize sup
