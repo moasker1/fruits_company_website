@@ -1,3 +1,8 @@
+temp:
+Delete function for containeritems
+
+
+
 
 notes :- 
 عمل جدول كسم الاصناف للعملاء بتاع عبغني بيعرض النقلات و الاصناف بتاعت النقلات بتاعت العميل ( الشغل في صفحة العميل) 
@@ -21,3 +26,4 @@ notes :-
 - search about local db and online db what is better and faster
 - make add supplier to the container <options>, and also items to the container
 - base.html
+- the messages style
